@@ -1,0 +1,217 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Creature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Creature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Gobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Combat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Combat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\World.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:World.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Tile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Tile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\RPGidea.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RPGidea.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 261,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RPGidea.csproj",
+              "DocumentMoniker": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\RPGidea.csproj",
+              "RelativeDocumentMoniker": "RPGidea.csproj",
+              "ToolTip": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\RPGidea.csproj",
+              "RelativeToolTip": "RPGidea.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-04-08T19:51:48.504Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Combat.cs",
+              "DocumentMoniker": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Combat.cs",
+              "RelativeDocumentMoniker": "Combat.cs",
+              "ToolTip": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Combat.cs",
+              "RelativeToolTip": "Combat.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-06T23:22:16.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Item.cs",
+              "RelativeDocumentMoniker": "Item.cs",
+              "ToolTip": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Item.cs",
+              "RelativeToolTip": "Item.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T17:32:25.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "World.cs",
+              "DocumentMoniker": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\World.cs",
+              "RelativeDocumentMoniker": "World.cs",
+              "ToolTip": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\World.cs",
+              "RelativeToolTip": "World.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T17:31:39.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T17:07:08.064Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "baa2b9a5-657c-42c9-b627-cb02f29dd75a",
+        "Display": 1,
+        "X": 4,
+        "Y": 0,
+        "Width": 1058,
+        "Height": 1056,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Tile.cs",
+              "DocumentMoniker": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Tile.cs",
+              "RelativeDocumentMoniker": "Tile.cs",
+              "ToolTip": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Tile.cs",
+              "RelativeToolTip": "Tile.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-08T17:09:40.183Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "c4b811cf-6375-4d22-a4e1-0f8420e34659",
+        "Display": 1,
+        "X": 942,
+        "Y": 0,
+        "Width": 1141,
+        "Height": 1045,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Gobject.cs",
+              "DocumentMoniker": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Gobject.cs",
+              "RelativeDocumentMoniker": "Gobject.cs",
+              "ToolTip": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Gobject.cs",
+              "RelativeToolTip": "Gobject.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-07T14:14:59.964Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "5acba63d-8d78-4eda-9775-a03319528c45",
+        "Display": 0,
+        "X": 950,
+        "Y": 7,
+        "Width": 1037,
+        "Height": 1056,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Creature.cs",
+              "DocumentMoniker": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Creature.cs",
+              "RelativeDocumentMoniker": "Creature.cs",
+              "ToolTip": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\Creature.cs",
+              "RelativeToolTip": "Creature.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-04T17:32:03.899Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

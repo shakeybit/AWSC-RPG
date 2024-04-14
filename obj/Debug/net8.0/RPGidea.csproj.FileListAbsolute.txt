@@ -1,0 +1,15 @@
+C:\Users\Lau Breilev\OneDrive\Documents\Projects\RPG\RPGidea\bin\Debug\net8.0\RPGidea.exe
+C:\Users\Lau Breilev\OneDrive\Documents\Projects\RPG\RPGidea\bin\Debug\net8.0\RPGidea.deps.json
+C:\Users\Lau Breilev\OneDrive\Documents\Projects\RPG\RPGidea\bin\Debug\net8.0\RPGidea.runtimeconfig.json
+C:\Users\Lau Breilev\OneDrive\Documents\Projects\RPG\RPGidea\bin\Debug\net8.0\RPGidea.dll
+C:\Users\Lau Breilev\OneDrive\Documents\Projects\RPG\RPGidea\bin\Debug\net8.0\RPGidea.pdb
+C:\Users\Lau Breilev\OneDrive\Documents\Projects\RPG\RPGidea\obj\Debug\net8.0\RPGidea.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lau Breilev\OneDrive\Documents\Projects\RPG\RPGidea\obj\Debug\net8.0\RPGidea.AssemblyInfoInputs.cache
+C:\Users\Lau Breilev\OneDrive\Documents\Projects\RPG\RPGidea\obj\Debug\net8.0\RPGidea.AssemblyInfo.cs
+C:\Users\Lau Breilev\OneDrive\Documents\Projects\RPG\RPGidea\obj\Debug\net8.0\RPGidea.csproj.CoreCompileInputs.cache
+C:\Users\Lau Breilev\OneDrive\Documents\Projects\RPG\RPGidea\obj\Debug\net8.0\RPGidea.sourcelink.json
+C:\Users\Lau Breilev\OneDrive\Documents\Projects\RPG\RPGidea\obj\Debug\net8.0\RPGidea.dll
+C:\Users\Lau Breilev\OneDrive\Documents\Projects\RPG\RPGidea\obj\Debug\net8.0\refint\RPGidea.dll
+C:\Users\Lau Breilev\OneDrive\Documents\Projects\RPG\RPGidea\obj\Debug\net8.0\RPGidea.pdb
+C:\Users\Lau Breilev\OneDrive\Documents\Projects\RPG\RPGidea\obj\Debug\net8.0\RPGidea.genruntimeconfig.cache
+C:\Users\Lau Breilev\OneDrive\Documents\Projects\RPG\RPGidea\obj\Debug\net8.0\ref\RPGidea.dll
