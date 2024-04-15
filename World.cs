@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace RPGidea
 {
+    /// <summary>
+    /// World is responsible for mapping, tracking and populating a grid that position entities in the game
+    /// </summary>
     public class World
     {
         public int _maxX { get; set; }
@@ -13,7 +16,7 @@ namespace RPGidea
         public List<IEntity> Entities { get; set; }
         public List<Gobject> _Objects { get; set; }
         public List<Creature> _Creatures { get; set; }
-        public Tile[,] Tiles { get; set; } // 2D tile array
+        public Tile[,] Tiles { get; set; } 
 
 
         public World(int maxX, int maxY)
@@ -32,42 +35,62 @@ namespace RPGidea
             }
         }
 
-        // MODEL
+        /// <summary>
+        /// Methods to handle coordinates
+        /// </summary>
+        /// <param name="entity">An Entity placed in Tile grid</param>
+        /// <returns>entity coordinates</returns>
+        /// <exception cref="Exception">if Entity isn't placed can't get it</exception>
 
-    public int[] GetEntityCoordinates(IEntity entity)
-    {
-    for (int x = 0; x < _maxX; x++)
-    {
-        for (int y = 0; y < _maxY; y++)
+        public int[] GetEntityCoordinates(IEntity entity)
         {
-            if (Tiles[x, y].Entity == entity)
+            for (int x = 0; x < _maxX; x++)
             {
-                // found tile containing creature, return coordinates
-                return [x, y];
-            }
-        }
-    }
-
-    // If the creature is not found, return null or throw an exception
-    throw new Exception("error: " + entity.Name + " not found on map");
-    }   
-
-
-        // TILES (?)
-        public Tile GetEntityTile(IEntity entity) { 
-            foreach (Tile tile in Tiles) {
-                if (tile.Entity == entity) {
-                    return tile;
+                for (int y = 0; y < _maxY; y++)
+                {
+                    if (Tiles[x, y].Entity == entity)
+                    {
+                        return [x, y];
+                    }
                 }
             }
-            Console.WriteLine("Error: " + entity.Name + " not found");
-            return Tiles[0, 0];
-            }
 
 
-        // GET/SET
+            Logger.Instance.LogError("Entity not found.");
+            throw new Exception();
+            
+        }
+            /// <summary>
+            /// Uses "Manhattan distance formular" to determine the distance between 2 points in the 2D array grid
+            /// </summary>
+            /// <param name="coord1"> an array of 2 coordinates representing a position of a placement inside the 2d array grid </param>
+            /// <param name="coord2"> coordinates for second position </param>
+            /// <returns>the amount of posistions between the two coordinates</returns>
+        public int CalculateDistance(int[] coord1, int[] coord2)
+        {
+            return Math.Abs(coord1[0] - coord1[1]) + Math.Abs(coord2[0] - coord2[1]);
+        }
 
-        public IEntity? GetEntityAt(int x, int y)
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// Methods to handle Entity in World 
+        /// </summary>
+      
+        public void AddEntity(IEntity entity) {
+            Entities.Add(entity);
+        }
+        public void RemoveEntity(IEntity entity) {
+            Entities.Remove(entity);
+        }
+
+        public IEntity GetEntityAt(int x, int y)
         {
             if (x >= 0 && x < _maxX && y >= 0 && y < _maxY)
             {
@@ -75,8 +98,9 @@ namespace RPGidea
             }
             else
             {
-                Console.WriteLine("error: coordinate out of bounds");
-                return null;
+
+                Logger.Instance.LogError("Entity not found.");
+                throw new Exception();
             }
         }
 
@@ -89,17 +113,37 @@ namespace RPGidea
             }
             else
             {
-                Console.WriteLine("error: coordinate out of bounds");
+                Logger.Instance.LogError("Coordinates out of bounds.");
             }
         }
+                
+        /// <summary>
+        /// Methods to handle Tile in World
+        /// </summary>
+
+        public Tile GetEntityTile(IEntity entity)
+        {
+            foreach (Tile tile in Tiles)
+            {
+                if (tile.Entity == entity)
+                {
+                    return tile;
+                }
+            }
+            Logger.Instance.LogError("Entity not found.");
+            throw new Exception();
+        }
+
+
 
         public void ClearTile(int x, int y)
         {
             if (x >= 0 && x < _maxX && y >= 0 && y < _maxY)
             {
                 Tiles[x, y].isOccupied = false;
-             }
+            }
         }
+
     }
 }
 

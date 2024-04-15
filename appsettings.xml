@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <worldSettings>
+    <maxX>6</maxX>
+    <maxY>6</maxY>
+  </worldSettings>
+</configuration>

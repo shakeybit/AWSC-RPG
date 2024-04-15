@@ -24,7 +24,7 @@ namespace RPGidea
             }
             else
             {
-                Console.WriteLine("error: tile occupied");
+                Logger.Instance.LogError("Tile occupied.");
             }
         }
 
@@ -37,8 +37,9 @@ namespace RPGidea
             }
             else
             {
-                Console.WriteLine("error: tile occupied");
+                Logger.Instance.LogError("Tile occupied.");
             }
         }
+
     }
 }

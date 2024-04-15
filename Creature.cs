@@ -7,14 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RPGidea
-
 {
-    public interface ICreature : IEntity {
-        List<IItem> Items { get; set;}
+    public interface ICreature : IEntity
+    {
         int MovementRange { get; set; }
+        Weapon EquippedWeapon { get; set; }
+        public Armor EquippedArmor { get; set; }
 
-        
     }
+
     public class Creature : ICreature
     {
         public int ID { get; }
@@ -22,53 +23,57 @@ namespace RPGidea
         public int HitPoints { get; set; }
         public int MovementRange { get; set; }
         public List<IItem> Items { get; set; }
-        public Weapon EquippedWeapon { get; private set; }
-        public Armor EquippedArmor { get; private set;}
-        public int Accept(IEntityVisitor visitor) {
-            return visitor.Visit(this);
-        }
-        
 
-
-        public Creature(string name, int hitPoints, int movementRange) {
+        public Weapon EquippedWeapon { get; set; }
+        public Armor EquippedArmor { get; set; }
+        public Creature(string name, int hitPoints, int movementRange)
+        {
             Name = name;
             HitPoints = hitPoints;
-            Items = new List<IItem>();
             MovementRange = movementRange;
+            Items = new List<IItem>();
         }
 
-        public List<IItem> GetItems() { 
-            return Items; 
+        public bool HasItem(IItem itemToFind)
+        {
+            return Items.Any(item => item.ID == itemToFind.ID);
+        }
+
+        public void EquipWeapon(Weapon weapon)
+        {
+            if (HasItem(weapon))
+            {
+                EquippedWeapon = weapon;
             }
+            else
+            {
+                Logger.Instance.LogError("Creature does not have weapon " + weapon.Name + " in inventory");
+            }
+        }
 
-            /*
-        public List<Weapon> GetWeapons()
+        public void EquipArmor(Armor armor)
         {
-            return Items.OfType<Weapon>().ToList();
+            // Check if the creature has the armor
+            if (HasItem(armor))
+            {
+                EquippedArmor = armor;
+            }
+            else
+            {
+                Logger.Instance.LogError("Creature does not have armor " + armor.Name + " in inventory");
+            }
         }
 
-        public List<Armor> GetArmor()
+        public void AddItem(IItem item)
         {
-            return Items.OfType<Armor>().ToList();
-        } */
-
-        public void EquipWeapon(Weapon weapon) {
-            EquippedWeapon = weapon;
+            Items.Add(item);
         }
 
-        public void EquipArmor(Armor armor) {
-            EquippedArmor = armor;
+        public void RemoveItem(Item item)
+        {
+            Items.Remove(item);
         }
-
-        public Weapon GetEquippedWeapon() {
-            return EquippedWeapon;
-        }
-        public Armor GetEquippedArmor() {
-            return EquippedArmor;
-        }
-        
-        public void AddItem(IItem item) { Items.Add(item); }
-        public void RemoveItem(Item item) { Items.Remove(item); }
     }
-
 }
+
+

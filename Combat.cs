@@ -5,112 +5,119 @@ using System.Threading.Tasks;
 
 namespace RPGidea
 {
-    public class CombatVisitor : IEntityVisitor // separate the logic for operating on different types of entities from the entities themselves
+    public class Combat
     {
-        public int CalculateCreatureDamage(Creature creature)
-        {
-            Weapon weapon = creature.GetEquippedWeapon();
-            Armor armor = creature.GetEquippedArmor();
-
-        }
-
-    }
-
-
-
-
-
-    public class Combat // LEGACY CLASS (no visitor)
-    {
-        public List<Creature> Players;
-        public List<Creature> Monsters;
-        public List<Gobject> Objects;
         public World World;
         public int Turn;
-        
-        public Combat(List<Creature> players, List<Creature> monsters, List<Gobject> objects, World world) // no constructor need?
+
+        /// <summary>
+        /// Calculates damage output of a creature attacking an entity
+        /// Attacked creatures armor reduce damage
+        /// Non-creature entity like chest or barrel have no armor 
+        /// </summary>
+        /// <param name="attacker">adds the DamageValue of its EquippedWeapon to damage</param>
+        /// <param name="target">subtracts the DamageValue of its EquippedArmor from damage (if creature)</param>
+        /// <returns></returns>
+        public int CalculateDamage(Creature attacker, IEntity target)
         {
-            Players = players;
-            Monsters = monsters;
-            Objects = objects;
-            World = world;
-        }
+            int damage = 0;
 
-        public void EquipWeapon(Weapon weapon, Creature creature) {
-            if (creature.GetWeapons().Contains(weapon)) {
-                creature.EquipWeapon(weapon);
-            } else {
-                Console.WriteLine("Error: Weapon not in inventory");
+            Weapon attackerWeapon = attacker.EquippedWeapon;
+
+            if (target is Creature)
+            {
+                Armor targetArmor = ((Creature)target).EquippedArmor;
+                damage = attackerWeapon.DamageValue - targetArmor.ArmorValue;
             }
-        } 
-
-        public void EquipArmor(Armor armor, Creature creature) {
-            if (creature.GetArmor().Contains(armor)) {
-                creature.EquipArmor(armor);
-            } else {
-                Console.WriteLine("Error: Weapon not in inventory");
+            else
+            {
+                damage = attackerWeapon.DamageValue;
             }
-        } 
 
-
-        public int CalculateDamage(Creature attacker, IEntity target) 
-        {
-            Weapon attackerWeapon = attacker.GetEquippedWeapon();
-            Armor targetArmor = target.GetEquippedArmor(); // target IEntity does not have GetEquippedArmor, only creature-entities should
-
-            int damage = attackerWeapon.DamageValue;
-            int armor = targetArmor.ArmorValue;
-
-            damage = damage - armor;
-
-            if (damage < 0) {
+            if (damage < 0)
+            {
                 damage = 0;
             }
+
             return damage;
         }
 
-            // calculate distance between coordinates
-        public int CalculateDistance(int[] coord1, int[] coord2)
-        {
 
-            // "Manhattan distance formular"
-            return Math.Abs(coord1[0] - coord1[1]) + Math.Abs(coord2[0] - coord2[1]);
+
+
+        public void Attack(Creature attacker, IEntity target)
+        {
+            Weapon weapon = attacker.EquippedWeapon;
+            if (IsInAttackRange(attacker, target))
+            {
+                target.HitPoints = -CalculateDamage(attacker, target);
+                Logger.Instance.LogInfo(attacker.Name + " attacks " + target.Name + " for " + CalculateDamage(attacker, target) + " damage using " + weapon.Name + ".");
+            }
+            else
+            {
+                Logger.Instance.LogError(target.Name + " out of weapon range.");
+            }
         }
-            // checks if creature's weapon has sufficient range to damage creature/gobject
-        public bool IsInRange(Creature attacker, IEntity target) {
-            int distance = CalculateDistance(World.GetEntityCoordinates(attacker), World.GetEntityCoordinates(target));
-            if (attacker.GetEquippedWeapon().AttackRange < distance) {
+
+
+
+        public void LootEntity(Creature player, Entity entity)
+        {
+            List<IItem> loot = entity.Items;
+            if (loot.Count == 0)
+            {
+                Logger.Instance.LogWarning(entity.Name + " holds no items.");
+            }
+            if (entity.HitPoints == 0)
+            {
+                foreach (IItem item in loot)
+                {
+                    player.AddItem(item);
+                    Console.WriteLine(player.Name + " looted " + item.Name);
+                }
+            }
+            else
+            {
+                Logger.Instance.LogWarning(entity.Name + " can't be looted until at 0 Hit Points.");
+            }
+        }
+
+        public void MoveCreature(Creature creature, int x, int y)
+        {
+            int[] creatureStartCoordinates = World.GetEntityCoordinates(creature);
+            if (creature.MovementRange <= World.CalculateDistance(creatureStartCoordinates, [x, y]))
+            {
+                World.SetEntityAt(creature, x, y);
+                World.ClearTile(creatureStartCoordinates[0], creatureStartCoordinates[1]);
+                Logger.Instance.LogInfo(creature.Name + " moved to " + x + ", " + y);
+            }
+            else 
+            {
+                Logger.Instance.LogError("Coordinates out of creature movement range.");
+            }
+
+        }
+
+        /// <summary>
+        /// checks if creature's weapon has sufficient range to entity
+        /// </summary>
+        /// <param name="attacker"> has a position in the world and a weapon with specific range.</param>
+        /// <param name="target"> has a position in the world.</param>
+        /// <returns></returns>
+        public bool IsInAttackRange(Creature attacker, IEntity target)
+        {
+            int distance = World.CalculateDistance(World.GetEntityCoordinates(attacker), World.GetEntityCoordinates(target));
+            if (attacker.EquippedWeapon.AttackRange < distance)
+            {
                 return false;
-            } else {
+            }
+            else
+            {
                 return true;
             }
         }
 
 
-
-        public void Attack(Creature attacker, IEntity target) {
-            if (IsInRange(attacker, target)) {
-                target.HitPoints = - CalculateDamage(attacker, target);
-            }
-            Weapon weapon = attacker.GetEquippedWeapon();
-            Console.WriteLine(attacker.Name + " attacks " + target.Name + " for " + CalculateDamage(attacker, target) + " damage using " + weapon.Name + ".");
-        }
-
-        
-
-        public void LootEntity(Creature player, Entity entity)
-        {
-            List<IItem> loot = entity.Items;
-            if (loot.Count == 0) {
-                Console.WriteLine(entity.Name + " is empty!");
-            }
-
-            foreach (IItem item in loot) {
-                entity.AddItem(item);
-                Console.WriteLine(entity.Name + " looted " + item.Name);
-            }
-
-        }
 
 
     }
@@ -119,24 +126,6 @@ namespace RPGidea
 
 
 
-/*
-
-      public void LootObject(Creature creature, Gobject gobject)
-        {
-            List<IItem> loot = gobject.GetItems();
-            if (loot.Count == 0) {
-                Console.WriteLine(gobject.Name + " is empty!");
-            }
-
-            foreach (IItem item in loot) {
-                creature.AddItem(item);
-                Console.WriteLine(creature.Name + " looted " + item.Name);
-            }
-
-        }
 
 
-*/
 
-
-    

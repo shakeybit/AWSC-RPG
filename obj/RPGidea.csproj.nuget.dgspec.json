@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\RPGidea.csproj": {}
+    "c:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\RPGidea.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\RPGidea.csproj": {
+    "c:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\RPGidea.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\RPGidea.csproj",
+        "projectUniqueName": "c:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\RPGidea.csproj",
         "projectName": "RPGidea",
-        "projectPath": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\RPGidea.csproj",
+        "projectPath": "c:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\RPGidea.csproj",
         "packagesPath": "C:\\Users\\Lau Breilev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\obj\\",
+        "outputPath": "c:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lau Breilev\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,6 +44,16 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Xml": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
