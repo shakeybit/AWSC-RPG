@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RPGidea", "RPGidea.csproj", "{05457D4C-198C-44D6-9B07-80D2C11C9C68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05457D4C-198C-44D6-9B07-80D2C11C9C68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05457D4C-198C-44D6-9B07-80D2C11C9C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05457D4C-198C-44D6-9B07-80D2C11C9C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05457D4C-198C-44D6-9B07-80D2C11C9C68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3342BCDD-FE80-4076-8C74-B1CA152C0BE5}
+	EndGlobalSection
+EndGlobal

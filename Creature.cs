@@ -10,6 +10,7 @@ namespace RPGidea
 {
     public interface ICreature : IEntity
     {
+        int ID { get; }
         int MovementRange { get; set; }
         Weapon EquippedWeapon { get; set; }
         public Armor EquippedArmor { get; set; }
@@ -26,8 +27,9 @@ namespace RPGidea
 
         public Weapon EquippedWeapon { get; set; }
         public Armor EquippedArmor { get; set; }
-        public Creature(string name, int hitPoints, int movementRange)
+        public Creature(int id, string name, int hitPoints, int movementRange)
         {
+            ID = id;
             Name = name;
             HitPoints = hitPoints;
             MovementRange = movementRange;
@@ -53,7 +55,6 @@ namespace RPGidea
 
         public void EquipArmor(Armor armor)
         {
-            // Check if the creature has the armor
             if (HasItem(armor))
             {
                 EquippedArmor = armor;
@@ -62,6 +63,10 @@ namespace RPGidea
             {
                 Logger.Instance.LogError("Creature does not have armor " + armor.Name + " in inventory");
             }
+        }
+        public void AddItemList(params IItem[] items){
+            var itemsToAdd = items.ToList();
+                Items.AddRange(itemsToAdd);
         }
 
         public void AddItem(IItem item)

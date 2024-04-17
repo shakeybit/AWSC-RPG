@@ -10,6 +10,11 @@ namespace RPGidea
         public World World;
         public int Turn;
 
+        public Combat(World world)
+        {
+            World = world;
+        }
+
         /// <summary>
         /// Calculates damage output of a creature attacking an entity
         /// Attacked creatures armor reduce damage
@@ -23,15 +28,16 @@ namespace RPGidea
             int damage = 0;
 
             Weapon attackerWeapon = attacker.EquippedWeapon;
+            int baseDamage = CalculateBaseDamage(attackerWeapon);
 
             if (target is Creature)
             {
                 Armor targetArmor = ((Creature)target).EquippedArmor;
-                damage = attackerWeapon.DamageValue - targetArmor.ArmorValue;
+                damage = baseDamage - targetArmor.ArmorValue;
             }
             else
             {
-                damage = attackerWeapon.DamageValue;
+                damage = baseDamage;
             }
 
             if (damage < 0)
@@ -41,21 +47,46 @@ namespace RPGidea
 
             return damage;
         }
+        /// <summary>
+        /// Calculates the base damage of a weapon, handling decorator operation if applicable
+        /// </summary>
+        /// <param name="weapon">weapon to be calculated</param>
+        /// <returns></returns>
+        
+
+        private int CalculateBaseDamage(Weapon weapon)
+        {
+            int baseDamage = weapon.DamageValue;
+
+            if (weapon is IWeaponDecorator weaponDecorator)
+            {
+                baseDamage = weaponDecorator.DamageValue;
+            }
+
+            return baseDamage;
+        }
 
 
 
-
-        public void Attack(Creature attacker, IEntity target)
+        /// <summary>
+        /// Basic attack method subtracts CalculateDamage from target entity hitpoints if IsInAttackRange is true 
+        /// </summary>
+        /// <param name="attacker">attacker is a Creature, only creatures should attack</param>
+        /// <param name="target">Target is IEntity, either creature, gobject or other types that can be struck</param>
+        public virtual void Attack(Creature attacker, IEntity target) // virtual: hvis arver fra klasse kan attack ellers overwrites
         {
             Weapon weapon = attacker.EquippedWeapon;
             if (IsInAttackRange(attacker, target))
             {
-                target.HitPoints = -CalculateDamage(attacker, target);
-                Logger.Instance.LogInfo(attacker.Name + " attacks " + target.Name + " for " + CalculateDamage(attacker, target) + " damage using " + weapon.Name + ".");
+                int damage = CalculateDamage(attacker, target);
+                target.HitPoints -= damage;
+
+                Logger.Instance.LogInfo(attacker.Name + " attacks " + target.Name + " for " + damage + " damage using " + weapon.Name + ".\n"
+                + target.Name + " currently has " + target.HitPoints + " remaining hit points.");
             }
             else
             {
-                Logger.Instance.LogError(target.Name + " out of weapon range.");
+                Logger.Instance.LogError(attacker.Name + " tried to attack " + target.Name + " but could not reach with " + attacker.EquippedWeapon.Name + ".");
             }
         }
 
@@ -84,16 +115,19 @@ namespace RPGidea
 
         public void MoveCreature(Creature creature, int x, int y)
         {
-            int[] creatureStartCoordinates = World.GetEntityCoordinates(creature);
-            if (creature.MovementRange <= World.CalculateDistance(creatureStartCoordinates, [x, y]))
+            int[] creatureStartCoordinates = World.GetEntityCoordinates(creature); // "Object reference not set to an instance of an object"
+
+            int distance = World.CalculateDistance(creatureStartCoordinates, [x, y]);
+
+            if (creature.MovementRange >= distance)
             {
                 World.SetEntityAt(creature, x, y);
                 World.ClearTile(creatureStartCoordinates[0], creatureStartCoordinates[1]);
-                Logger.Instance.LogInfo(creature.Name + " moved to " + x + ", " + y);
+                Logger.Instance.LogInfo(creature.Name + " moved " + distance + " tiles to " + x + ", " + y);
             }
-            else 
+            else
             {
-                Logger.Instance.LogError("Coordinates out of creature movement range.");
+                Logger.Instance.LogError("Coordinates out of " + creature.Name + " movement range of " + creature.MovementRange);
             }
 
         }

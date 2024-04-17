@@ -1,14 +1,23 @@
 namespace RPGidea
 {
 
-/// <summary>
-/// item decorator adds runtime operations on object variables independently. write methods to attach new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors.
-/// </summary>
+    /// <summary>
+    /// item decorator adds runtime operations on object variables independently. 
+    /// write methods to attach new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors.
+    /// </summary>
     public interface IItemDecorator : IItem
     {
-        IItem GetBaseItem { get; }
+        IItem BaseItem { get; }
     }
-    public class ModDamage : IItemDecorator, IWeapon
+
+    /// <summary>
+    /// Dedicated weapon decorator for operating on weapon attributes
+    /// </summary>
+    public interface IWeaponDecorator : IWeapon
+    {
+        int DamageValue { get; }
+    }
+    public class ModDamage : IWeaponDecorator
     {
         private readonly IWeapon _baseWeapon;
         private readonly int _damageIncrease;
@@ -26,6 +35,7 @@ namespace RPGidea
         public string Name => _baseWeapon.Name + " (Force Enhanced)";
         public string Description => _baseWeapon.Description;
 
+
         /// <summary>
         /// Implement IWeapon interface properties
         /// </summary>
@@ -35,6 +45,6 @@ namespace RPGidea
         /// <summary>
         /// Implement GetBaseItem property from IItemDecorator interface
         /// </summary>
-        public IItem GetBaseItem => _baseWeapon;
+        public IItem BaseItem => _baseWeapon;
     }
 }

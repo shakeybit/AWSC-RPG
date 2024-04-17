@@ -11,7 +11,7 @@ namespace RPGidea
     {
         public bool isOccupied = false;
         public IEntity Entity { get; set; }
-        public Creature Creature { get; private set; }
+        public ICreature Creature { get; set; }
 
         public bool IsOccupied => isOccupied;
 
@@ -28,7 +28,7 @@ namespace RPGidea
             }
         }
 
-        public void PlaceCreature(Creature creature)
+        public void PlaceCreature(ICreature creature)
         {
             if (!isOccupied)
             {
