@@ -12,8 +12,6 @@ namespace RPGidea
     {
         int ID { get; }
         int MovementRange { get; set; }
-        Weapon EquippedWeapon { get; set; }
-        public Armor EquippedArmor { get; set; }
 
     }
 

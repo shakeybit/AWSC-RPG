@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RPGidea")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+03babc986fde5ea2f22336a998efa3ddddea3426")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a7dbe4e711b56bd2d2663e45f59cecdbb5b5f96")]
 [assembly: System.Reflection.AssemblyProductAttribute("RPGidea")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RPGidea")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

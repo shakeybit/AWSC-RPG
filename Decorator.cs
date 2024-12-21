@@ -1,6 +1,5 @@
 namespace RPGidea
 {
-
     /// <summary>
     /// item decorator adds runtime operations on object variables independently. 
     /// write methods to attach new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors.
@@ -13,38 +12,35 @@ namespace RPGidea
     /// <summary>
     /// Dedicated weapon decorator for operating on weapon attributes
     /// </summary>
-    public interface IWeaponDecorator : IWeapon
+    public class ModDamage : IItemDecorator
     {
-        int DamageValue { get; }
-    }
-    public class ModDamage : IWeaponDecorator
-    {
-        private readonly IWeapon _baseWeapon;
-        private readonly int _damageIncrease;
+        private static int _nextId = 1;
+        private readonly IItem _baseItem;
 
-        public ModDamage(IWeapon baseWeapon, int damageIncrease)
+        public int ID { get; }
+        public string Description => _baseItem.Description + " (Damage Enhanced)";
+        public int TradeValue => _baseItem.TradeValue;
+        public int Weight => _baseItem.Weight;
+        public int Slot => _baseItem.Slot;
+        public StatModifier _StatModifier { get; }
+
+        public IItem BaseItem => _baseItem;
+
+        public ModDamage(IItem baseItem)
         {
-            _baseWeapon = baseWeapon;
-            _damageIncrease = damageIncrease;
+            ID = _nextId++;
+            _baseItem = baseItem;
+            _StatModifier = new StatModifier(
+                baseItem._StatModifier.name,
+                baseItem._StatModifier.healthModifier,
+                baseItem._StatModifier.armorModifier,
+                baseItem._StatModifier.damageModifier,
+                baseItem._StatModifier.inventoryModifier,
+                baseItem._StatModifier.rangeModifier,
+                baseItem._StatModifier.strModifier,
+                baseItem._StatModifier.agiModifier,
+                baseItem._StatModifier.intModifier
+            );
         }
-
-        /// <summary>
-        /// Implement IItem interface properties
-        /// </summary>
-        public int ID => _baseWeapon.ID;
-        public string Name => _baseWeapon.Name + " (Force Enhanced)";
-        public string Description => _baseWeapon.Description;
-
-
-        /// <summary>
-        /// Implement IWeapon interface properties
-        /// </summary>
-        public int DamageValue => _baseWeapon.DamageValue + _damageIncrease;
-        public int AttackRange => _baseWeapon.AttackRange;
-
-        /// <summary>
-        /// Implement GetBaseItem property from IItemDecorator interface
-        /// </summary>
-        public IItem BaseItem => _baseWeapon;
     }
 }

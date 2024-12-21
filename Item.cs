@@ -10,8 +10,12 @@ namespace RPGidea
     public interface IItem
     {
         int ID { get; }
-        string Name { get; }
         string Description { get; }
+        int TradeValue { get; }
+        int Weight { get; }
+        int Slot { get; }
+        public StatModifier _StatModifier { get; }
+        
     }
 
     /// <summary>
@@ -19,77 +23,31 @@ namespace RPGidea
     /// </summary>
     public class Item : IItem
     {
+        private static int _nextId;
         public int ID { get; }
-        public string Name { get; }
         public string Description { get; }
+        public int TradeValue { get; }
+        public int Weight { get; }
+        public int Slot { get; }
+        public StatModifier _StatModifier { get; set; }
 
-        public Item(int id, string name, string description)
+
+        public Item(string description, int tradeValue, int weight, int slot, StatModifier statModifier)
         {
-            ID = id;
-            Name = name;
+            ID = _nextId++;
             Description = description;
+            TradeValue = tradeValue;
+            Weight = weight;
+            Slot = slot;
+            _StatModifier = statModifier;
         }
     }
 
     /// <summary>
-    /// decorator interface for item
+    /// decorator interface for equipment
     /// </summary>
-
-        public interface IWeapon : IItem
-    {
-        int DamageValue { get; }
-        int AttackRange { get; }
-    }
-
-    /// <summary>
-    /// Interface for armor
-    /// </summary>
-    public interface IArmor : IItem
-    {
-        int ArmorValue { get; }
-    }
+   
 
 
-    /// <summary>
-    /// Base class for weapons
-    /// </summary>
-    public class Weapon : IWeapon
-    {
-        public int ID { get; }
-        public string Name { get; }
-        public string Description { get; }
-        public int DamageValue { get; }
-        public int AttackRange { get; }
-
-
-        public Weapon(int id, string name, string description, int damage, int range)
-        {
-            ID = id;
-            Name = name;
-            Description = description;
-            DamageValue = damage;
-            AttackRange = range;
-
-        }
-    }
-
-    /// <summary>
-    /// Base class for armor
-    /// </summary>
-    public class Armor : IArmor
-    {
-        public int ID { get; }
-        public string Name { get; }
-        public string Description { get; }
-        public int ArmorValue { get; }
-        
-        public Armor(int id, string name, string description, int armor)
-        {
-            ID = id;
-            Name = name;
-            Description = description;
-            ArmorValue = armor;
-        }
-    }
 }
 

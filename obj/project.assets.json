@@ -568,11 +568,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\RPGidea.csproj",
+      "projectUniqueName": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\RPGidea.csproj",
       "projectName": "RPGidea",
-      "projectPath": "c:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\RPGidea.csproj",
+      "projectPath": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\RPGidea.csproj",
       "packagesPath": "C:\\Users\\Lau Breilev\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\obj\\",
+      "outputPath": "C:\\Users\\Lau Breilev\\OneDrive\\Documents\\Projects\\RPG\\RPGidea\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lau Breilev\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -631,7 +631,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

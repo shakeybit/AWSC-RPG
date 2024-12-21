@@ -1,0 +1,5 @@
+0 = "Misc"
+1 = "Weapon"
+2 = "Armor"
+3 = "Bag"
+4 = "Perishable"
